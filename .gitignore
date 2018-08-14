@@ -2,14 +2,8 @@
 *
 
 # But not these files...
-!.gitignore
-!*.tex
-!*.bib
-# etc...
-
-# ...even if they are in subdirectories
-!*/
-
+#!.gitignore
+#!*.cpp
 
 ## any executable
 *.out
