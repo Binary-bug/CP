@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -23,23 +24,25 @@ return result;
 }			
 
 int main(){
+
+
 	int N,K,Q,temp;
-	char c=' ';
-	cin >> N >> Q >> K;
+	string query;
+	scanf("%d%d%d",&N,&Q,&K);
 	int index = 0;
 	vector<int> bdits;
 	while(N--){ 
-		cin >> temp;
+		scanf("%d",&temp);
 		bdits.push_back(temp);
 	}
+	cin >> query;
 	N=bdits.size();
-	while(Q--){
-		cin >> c;
+	for(int i =0; i < Q ; ++i){
 		temp = 0;
-		if(c == '!') index = (index + 1) % N;
+		if(query[i] == '!') index = (N - 1 + index) % N;
 		else {
 			temp = maxlen(bdits,index,K);
-			cout << temp << endl;
+			cout << temp << "\n";
 		}	
 	}
 	return 0;
