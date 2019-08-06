@@ -1,23 +1,27 @@
 #include<iostream>
 
+
 using namespace std;
 
 
 int main(){
-	int n,ones=0,i,j,a,b;
-	cin >> n;
+	int n;
+ 	cin >> n;
 	int a[123]={0};
-	int b[123]={0};
-	int c[123]={0};
-	int val = 0;
-	for(i=1; i <= n; i++){
-		cin >> val;
-		if(val) ones++;
-		a[i] = val;
+	int ones = 0;
+	for(int i = 0; i < n; i++) {
+		scanf("%d",&a[i]);
+		ones += a[i];
+		a[i]  = (a[i] ? 1 : -1 );
 	}
-	for(i=1; i <=n ; i++) b[i] = b[i-1] + a[i];
-	for(j=n; j > 0 ; j--) b[
-	 
-	
-        
+	int curr = a[0];
+	int min_cost  = a[0];
+	for(int x = 1 ; x < n; x++){
+		curr = min(curr+a[x],a[x]);
+		min_cost = min(curr,min_cost);
+	}
+	cout << ones - min_cost << endl;
+	return 0;
 }
+
+	
