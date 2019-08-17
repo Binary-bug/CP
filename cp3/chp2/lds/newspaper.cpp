@@ -9,20 +9,25 @@ int main(){
 	int N,K,M,p;
 	float x;
 	unsigned char c;
-	cin >> N;
+	scanf("%d",&N);
+	getchar();
 	array<int,257> price;
 	array<int,257> count;
 	cout << fixed << setprecision(2);
 	while(N--){
-		cin >> K;
+		scanf("%d",&K);
+		getchar();
 		price.fill(0);
 		count.fill(0);
 		while(K--){
-			 cin >> c >> p;
-			 price[c] = p;
+			scanf("%c",&c);
+			getchar();
+			scanf("%d",&p);
+			getchar(); 
+			price[c] = p;
 		}
-		cin >> M;
-		c = fgetc(stdin);
+		scanf("%d",&M);
+		getchar();
 		while(M--) while((c = fgetc(stdin)) != '\n') count[c]++;
 		x = 0.00;
 		for(int i=0; i < 257; i++) x+=(count[i] * price[i]);
